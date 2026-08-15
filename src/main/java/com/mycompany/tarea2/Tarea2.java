@@ -54,4 +54,27 @@ public class Tarea2 {
         System.out.println("Valor Mínimo: " + min);
         System.out.println("Promedio: " + promedio);
     }
+//Matriz bidimensional
+    public static void procesarMatriz2D(int[][] matriz) {
+        int sumaTotal = 0;
+
+        System.out.println("\n--- MATRIZ (2D) ---");
+        for (int i = 0; i < matriz.length; i++) {
+            int sumaFila = 0;
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+                sumaFila += matriz[i][j];
+                sumaTotal += matriz[i][j];
+            }
+            System.out.println("| Suma Fila " + (i + 1) + ": " + sumaFila);
+        }
+        System.out.println("Suma total de la matriz: " + sumaTotal);
+    }
+
+// Mostrar mensaje de final
+    public static void finalizarPrograma() {
+        System.out.println("\n========================================");
+        System.out.println("   Programa finalizado exitosamente.   ");
+        System.out.println("========================================");
+    }
 }
