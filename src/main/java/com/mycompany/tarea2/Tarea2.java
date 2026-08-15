@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Tarea2 {
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         // Declaración y inicialización de 4 datos primitivos
         int limiteElementos = 5;
         double promedioGeneral = 0.0;
@@ -12,6 +14,27 @@ public class Tarea2 {
         boolean esProgramaActivo = true;
 
         System.out.println("=== INICIANDO PROGRAMA ===");
+
+        // Arreglo unidimensional
+        int[] datos = new int[limiteElementos];
+        for (int i = 0; i < datos.length; i++) {
+            datos[i] = leerEnteroValido(scanner, "Ingrese el valor #" + (i + 1), 0, 100);
+        }
+        procesarArreglo1D(datos);
+
+        // Arreglo 2D
+        int filas = leerEnteroValido(scanner, "¿Cuántas filas tendrá la matriz?", 1, 10);
+        int columnas = leerEnteroValido(scanner, "¿Cuántas columnas tendrá la matriz?", 1, 10);
+        int[][] matriz = new int[filas][columnas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                matriz[i][j] = leerEnteroValido(scanner, "Fila " + (i + 1) + ", columna " + (j + 1), 0, 50);
+            }
+        }
+        procesarMatriz2D(matriz);
+
+        finalizarPrograma();
+        scanner.close();
     }
 
 // Validacion de rango 
