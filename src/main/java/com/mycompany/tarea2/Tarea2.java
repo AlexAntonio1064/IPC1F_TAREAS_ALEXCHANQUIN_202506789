@@ -35,4 +35,23 @@ public class Tarea2 {
         }
         return numero;
     }
+// arreglo unidimensional
+    public static void procesarArreglo1D(int[] arreglo) {
+        int max = arreglo[0];
+        int min = arreglo[0];
+        int suma = 0;
+
+        for (int num : arreglo) {
+            if (num > max) max = num;
+            if (num < min) min = num;
+            suma += num;
+        }
+
+        double promedio = (double) suma / arreglo.length;
+
+        System.out.println("\n--- RESULTADOS ARREGLO 1D ---");
+        System.out.println("Valor Máximo: " + max);
+        System.out.println("Valor Mínimo: " + min);
+        System.out.println("Promedio: " + promedio);
+    }
 }
