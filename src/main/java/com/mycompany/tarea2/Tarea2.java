@@ -2,27 +2,37 @@ package com.mycompany.tarea2;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Ajualip Alex 202506789
- */
 public class Tarea2 {
 
-// Scanner para lectura 
-    static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
+        // Declaración y inicialización de 4 datos primitivos
+        int limiteElementos = 5;
+        double promedioGeneral = 0.0;
+        char identificador = 'A';
+        boolean esProgramaActivo = true;
 
-        int cantidadDatos = 0;         // cantidad de elementos
-        double promedioGlobal = 0.0;   // messirve para la fase 3
-        char version = 'A';            
-        boolean datosValidos = false; 
+        System.out.println("=== INICIANDO PROGRAMA ===");
+    }
 
-        System.out.println("=== TAREA 2: Fundamentos de Java (version " + version + ") ===");
-        System.out.println("cantidadDatos = " + cantidadDatos);
-        System.out.println("promedioGlobal = " + promedioGlobal);
-        System.out.println("datosValidos = " + datosValidos);
+// Validacion de rango 
+    public static int leerEnteroValido(Scanner scanner, String mensaje, int min, int max) {
+        int numero = 0;
+        boolean valido = false;
 
-        sc.close();
+        while (!valido) {
+            System.out.print(mensaje + " (" + min + " a " + max + "): ");
+            if (scanner.hasNextInt()) {
+                numero = scanner.nextInt();
+                if (numero >= min && numero <= max) {
+                    valido = true;
+                } else {
+                    System.out.println("Error: El número debe estar entre " + min + " y " + max + ".");
+                }
+            } else {
+                System.out.println("Error: Debe ingresar un número entero válido.");
+                scanner.next(); 
+            }
+        }
+        return numero;
     }
 }
